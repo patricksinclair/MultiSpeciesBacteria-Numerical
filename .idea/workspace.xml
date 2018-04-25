@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2a4d774-b0cb-44dd-8b95-dc778fff6c02" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BioSystem.java" afterPath="$PROJECT_DIR$/src/BioSystem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Toolbox.java" afterPath="$PROJECT_DIR$/src/Toolbox.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MultiSpeciesMain.java" afterPath="$PROJECT_DIR$/src/MultiSpeciesMain.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MultiSpeciesMain.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MultiSpeciesMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MultiSpeciesMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="180">
+              <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BioSystem.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BioSystem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BioSystem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="223" column="64" lean-forward="false" selection-start-line="223" selection-start-column="64" selection-end-line="223" selection-end-column="64" />
+            <state relative-caret-position="103">
+              <caret line="213" column="29" lean-forward="false" selection-start-line="213" selection-start-column="26" selection-end-line="213" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4434#4435#0" expanded="true" />
@@ -102,9 +101,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/BioFrame.java" />
         <option value="$PROJECT_DIR$/src/Microhabitat.java" />
-        <option value="$PROJECT_DIR$/src/MultiSpeciesMain.java" />
         <option value="$PROJECT_DIR$/src/Toolbox.java" />
         <option value="$PROJECT_DIR$/src/BioSystem.java" />
+        <option value="$PROJECT_DIR$/src/MultiSpeciesMain.java" />
       </list>
     </option>
   </component>
@@ -328,16 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MultiSpeciesMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="43" lean-forward="false" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Toolbox.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
@@ -361,14 +350,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BioSystem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="223" column="64" lean-forward="false" selection-start-line="223" selection-start-column="64" selection-end-line="223" selection-end-column="64" />
+        <state relative-caret-position="103">
+          <caret line="213" column="29" lean-forward="false" selection-start-line="213" selection-start-column="26" selection-end-line="213" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4434#4435#0" expanded="true" />
             <element signature="e#4504#4505#0" expanded="true" />
             <element signature="e#4560#4561#0" expanded="true" />
             <element signature="e#4630#4631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MultiSpeciesMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="37" lean-forward="false" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

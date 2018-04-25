@@ -7,7 +7,8 @@ public class MultiSpeciesMain {
         //BioSystem bs = new BioSystem(10,10,10,10);
         //System.out.println(Arrays.toString(bs.getRandIndexes(262)));
 
-        BioSystem.multiSpeciesDistribution();
+        //BioSystem.multiSpeciesDistribution();
+        BioSystem.timeTillResistance();
     }
 
 
