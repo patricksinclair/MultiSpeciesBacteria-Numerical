@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class BioSystem {
@@ -21,8 +22,8 @@ public class BioSystem {
         this.microhabitats = new Microhabitat[L];
         for(int i = 0; i < L; i++){
             int[] multiPops = new int[nSpecies];
-            //double c_i = Math.exp(alpha*(double)i) - 1.;
-            double c_i = alpha; //this line is used for constant antibiotic distributions
+            double c_i = Math.exp(alpha*(double)i) - 1.;
+            //double c_i = alpha; //this line is used for constant antibiotic distributions
             microhabitats[i] = new Microhabitat(multiPops, K, c_i);
             microhabitats[i].addSomeRandoms(initialRandPop);
         }
@@ -41,6 +42,34 @@ public class BioSystem {
             runningTotal += m.getN();
         }
         return runningTotal;
+    }
+
+    public double percentageOfResistors(){
+        int resistantM = 10;
+        int nResistors = 0;
+        int totalPopulation = getTotalPopulation();
+
+        for(int i =0; i < L; i++){
+            //this counts the number of the most resistant kind of bacteria in each microhabitat
+            //i.e. the ones at the last index of the
+            nResistors += microhabitats[i].getMultiSpecPops()[nSpecies-1];
+        }
+
+        return (double)nResistors/(double)totalPopulation;
+    }
+
+    public boolean areResistorsDominant(){
+        double tolerance = 0.9;
+        int resistantM = 10;
+        int nResistors = 0;
+        int totalPopulation = getTotalPopulation();
+
+        for(int i =0; i < L; i++){
+            nResistors += microhabitats[i].getMultiSpecPops()[nSpecies-1];
+        }
+
+        if((double)nResistors/(double)totalPopulation >= tolerance) return true;
+        else return false;
     }
 
 
@@ -179,7 +208,54 @@ public class BioSystem {
     }
 
 
+    public static void timeTillResistance(double inputAlpha){
 
+        int L = 500, K = 500, nSpecies = 11;
+        double interval = 20.;
+        int nReps = 20;
+        String filename = "timeTillResistance_and_popSize-alpha="+String.valueOf(inputAlpha);
+
+        double[][] percentageResistData = new double[nReps][];
+        double[][] populationSizeData = new double[nReps][];
+        double[][] timeResistData = new double[nReps][];
+
+        for(int r = 0; r < nReps; r++) {
+
+            BioSystem bioSystem = new BioSystem(L, K, nSpecies, inputAlpha);
+            boolean alreadyRecorded = false;
+            ArrayList<Double> tData = new ArrayList<>();
+            ArrayList<Double> percentResData = new ArrayList<>();
+            ArrayList<Double> popSizeData = new ArrayList<>();
+
+            whileloop:
+            while(true) {
+                bioSystem.performAction();
+
+                if((bioSystem.getTimeElapsed()%interval >= 0. && bioSystem.getTimeElapsed()%interval <= 0.01) && !alreadyRecorded) {
+
+                    System.out.println("rep: "+String.valueOf(r)+"\ttime elapsed: " + String.valueOf(bioSystem.getTimeElapsed()) + "\tpercentage resistors: " + String.valueOf(bioSystem.percentageOfResistors()));
+                    tData.add(bioSystem.getTimeElapsed());
+                    percentResData.add(bioSystem.percentageOfResistors());
+                    popSizeData.add((double)bioSystem.getTotalPopulation());
+
+                    if(bioSystem.areResistorsDominant()) break whileloop;
+                    alreadyRecorded = true;
+                }
+                if(bioSystem.getTimeElapsed()%interval >= 0.1 && alreadyRecorded) alreadyRecorded = false;
+
+            }
+
+            timeResistData[r] = Toolbox.convertArrayListToPrimitiveArray(tData);
+            percentageResistData[r] = Toolbox.convertArrayListToPrimitiveArray(percentResData);
+            populationSizeData[r] = Toolbox.convertArrayListToPrimitiveArray(popSizeData);
+            System.out.println("resistance achieved in: " + String.valueOf(bioSystem.timeElapsed));
+        }
+
+        double[] averagedTimeData = Toolbox.averagedJaggedResults(timeResistData);
+        double[] averagedPercentageResData = Toolbox.averagedJaggedResults(percentageResistData);
+        double[] averagedPopulationSizeData = Toolbox.averagedJaggedResults(populationSizeData);
+        Toolbox.writeThreeArraysToFile(filename, averagedTimeData, averagedPercentageResData, averagedPopulationSizeData);
+    }
 
 
 }
