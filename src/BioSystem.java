@@ -155,6 +155,7 @@ public class BioSystem {
             //this while loop runs the system until the duration of the experiment has elapsed
             while(bioSystem.timeElapsed <= duration){
 
+                System.out.println("current population: "+ bioSystem.getTotalPopulation());
                 bioSystem.performAction();
 
                 if((bioSystem.getTimeElapsed()%interval >= 0. && bioSystem.getTimeElapsed()%interval <= 0.01) && !alreadyRecorded){
